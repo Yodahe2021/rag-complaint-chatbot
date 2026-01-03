@@ -7,13 +7,15 @@ __pycache__/
 .venv
 venv/
 
-# Data (raw & large files)
+# Data
 data/raw/
-data/processed/*.parquet
 data/processed/*.csv
+data/processed/*.parquet
 
-# Vector DB
+# Vector stores
 vector_store/
+data/*.index
+data/*_metadata.csv
 
 # Notebooks checkpoints
 .ipynb_checkpoints/
