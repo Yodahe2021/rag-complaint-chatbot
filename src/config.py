@@ -39,7 +39,7 @@ VECTOR_STORE_DIR = PROJECT_ROOT / "vector_store" / "faiss"
 
 # Model cache directory (HuggingFace models will be downloaded here)
 MODELS_DIR = PROJECT_ROOT / "models" / "hf"
-
+VECTOR_STORE_PATH = "models/faiss_store"
 # =============================================================================
 # MODEL CONFIGURATION
 # =============================================================================

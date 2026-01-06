@@ -1,21 +1,27 @@
 from typing import List, Dict
 from sentence_transformers import SentenceTransformer
-from langchain.vectorstores import Chroma
-from langchain.schema import Document
+from langchain_community.vectorstores import FAISS, Chroma # Added Chroma here
+# --- Corrected Imports below ---
+from langchain_core.documents import Document 
+# BaseRetriever is not used in the class definition, so we can remove it for now.
 from transformers import pipeline
 
 from src.prompts import RAG_PROMPT_TEMPLATE
 
 
 class RAGPipeline:
+    # Change 'top_k' to 'retrieval_k' in the definition
     def __init__(
         self,
         vector_store_path: str,
         embedding_model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
         llm_model_name: str = "mistralai/Mistral-7B-Instruct-v0.2",
-        top_k: int = 5,
+        retrieval_k: int = 5, # Renamed from top_k
     ):
-        self.top_k = top_k
+        # Update the internal variable name reference as well
+        self.top_k = retrieval_k 
+        # ... rest of the code is the same ...
+
 
         # Load embedding model
         self.embedding_model = SentenceTransformer(embedding_model_name)
